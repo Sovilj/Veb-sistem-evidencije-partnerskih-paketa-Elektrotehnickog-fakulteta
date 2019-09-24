@@ -12,7 +12,11 @@ Alati: HTML CSS JSF Hibernate SQL Primefaces Java
 Biblioteke:
 
 -Hibernate automacki uvezene
+
 -MySQL JDBC Driver
+
 -Java EE Web6 API
+
 -primefaces-6.2.jar
+
 
