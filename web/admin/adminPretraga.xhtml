@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/glavniTemplate.xhtml">
+            <ui:define name="left">
+                <ui:include src="adminLeft.xhtml"/>
+            </ui:define>
+            <ui:define name="title">
+                Pretraga
+            </ui:define>
+            <ui:define name="content">
+                <h:form>
+
+                    <h:panelGrid columns="2">
+                        Naziv paketa:
+                        <p:inputText id="naziv" value="#{pretragaControl.paket}" />
+
+
+                        Naziv kompanije:
+                        <p:inputText id="komp" value="#{pretragaControl.komp}"/>
+
+
+                        Vazeci ugovor:
+                        <p:selectBooleanCheckbox id="vaz" value="#{pretragaControl.vazeci}" label="Vazeci ugovori" />
+
+
+                        <p:commandButton value="Pretraga" update="table" action="#{pretragaControl.pretrazi()}"/>
+
+                    </h:panelGrid>
+                    <br/><br/><br/>
+                    <p:dataTable var="list" id="table" value="#{pretragaControl.listaKomp}" style="width: 800px; "
+                                 paginator="true" rows="4"
+                                 selection="#{pretragaControl.odabrana}"
+                                 selectionMode="single"
+                                 rowKey="#{list}"
+                                 >
+                        <f:facet name="header">
+                            Kompanije
+                        </f:facet>
+
+                        <p:column headerText="Id kompanije" style="width : 30px;">
+                            <h:outputText value="#{list.idKomp}" />
+                        </p:column>
+                        <p:column headerText="Naziv kompanije" style="width : 100px;">
+                            <h:outputText value="#{list.naziv}" />
+                        </p:column>
+                        <f:facet name="footer" >
+                            <p:commandButton update="table"  icon="ui-icon-search" value="Dosije" action="#{pretragaControl.spremiOdabranu()}"/>
+                        </f:facet>
+
+
+                    </p:dataTable>
+                    
+                    <h:outputText value="  " binding="#{pretragaControl.component}" id="messagesId"/>
+
+                    <p:message for="messagesId"/>
+
+
+
+
+                </h:form>
+
+
+            </ui:define>
+
+        </ui:composition>
+    </h:body>
+</html>
+

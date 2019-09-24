@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <f:metadata>
+            <f:viewAction action="#{oglasControl.inicClan()}" />
+        </f:metadata>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/glavniTemplate.xhtml">
+            <ui:define name="title">
+                Dodavanje oglasa
+            </ui:define>
+            <ui:define name="left">
+                <ui:include src="clanLeft.xhtml"/>
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form >
+                   
+                    <p:dataTable var="komp" value="#{oglasControl.kompanije}" id="radioDT" selection="#{oglasControl.odabrana}" rowKey="#{komp.idKomp}" style="width: 400px">
+                        <f:facet name="header" >
+                            Odaberite kompaniju:
+                        </f:facet>
+                        <p:column headerText="Kompanije" style="width:100px;text-align:center">
+                            <h:outputText value="#{komp.naziv}" />
+                        </p:column>
+                        <p:column headerText="IdKompanije" style="width:50px;text-align:center">
+                            <h:outputText value="#{komp.idKomp}" />
+                        </p:column>
+                        <p:column selectionMode="single" style="width:16px;text-align:center"/>
+
+                    </p:dataTable>
+                    <p:message for="radioDT"/>
+                    <br/>
+
+                    <h:panelGrid columns="3">
+                        Naslov oglasa:
+                        <p:inputText id="naziv" value="#{oglasControl.naziv}"/>
+                        <p:message for="naziv"/>
+
+                        Opis:
+                        <p:inputTextarea rows="6" cols="33" value="#{oglasControl.opis}" id="opis"/>
+                        <p:message for="opis" />
+
+                        Da li se nudi:
+                        <p:selectManyCheckbox id="chk" value="#{oglasControl.ponuda}" >
+                            <f:selectItem itemLabel="Strucna praksa" itemValue="praksa" />
+                            <f:selectItem itemLabel="Zaposlenje" itemValue="posao" />
+
+                        </p:selectManyCheckbox>
+                        <p:message for="chk" />
+
+                        <p:commandButton action="#{oglasControl.dodaj()}" icon="ui-icon-check" ajax="false" validateClient="true" value="Potvrdi"/>
+
+                        <h:outputText value="" id="messageId" binding="#{oglasControl.component}"></h:outputText>
+                        <p:message for="messageId" />
+
+                    </h:panelGrid>
+
+
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

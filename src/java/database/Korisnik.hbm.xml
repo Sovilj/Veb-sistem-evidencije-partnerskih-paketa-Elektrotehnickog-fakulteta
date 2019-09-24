@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 28, 2018 1:27:32 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="database.Korisnik" table="korisnik" catalog="projekat" optimistic-lock="version">
+        <id name="username" type="string">
+            <column name="username" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="password" type="string">
+            <column name="password" length="16383" not-null="true" />
+        </property>
+        <property name="ime" type="string">
+            <column name="ime" length="32" not-null="true" />
+        </property>
+        <property name="prezime" type="string">
+            <column name="prezime" length="32" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="32" not-null="true" />
+        </property>
+        <property name="institucija" type="string">
+            <column name="institucija" length="32" not-null="true" />
+        </property>
+        <property name="pol" type="string">
+            <column name="pol" length="32" not-null="true" />
+        </property>
+        <property name="datumRodjenja" type="date">
+            <column name="datumRodjenja" length="10" not-null="true" />
+        </property>
+        <property name="tip" type="int">
+            <column name="tip" not-null="true" />
+        </property>
+        <property name="zahtev" type="int">
+            <column name="zahtev" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

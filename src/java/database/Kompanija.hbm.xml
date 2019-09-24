@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 28, 2018 1:27:32 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="database.Kompanija" table="kompanija" catalog="projekat" optimistic-lock="version">
+        <id name="idKomp" type="java.lang.Integer">
+            <column name="id_komp" />
+            <generator class="identity" />
+        </id>
+        <property name="naziv" type="string">
+            <column name="naziv" length="32" not-null="true" />
+        </property>
+        <property name="adresa" type="string">
+            <column name="adresa" length="32" not-null="true" />
+        </property>
+        <property name="grad" type="string">
+            <column name="grad" length="32" not-null="true" />
+        </property>
+        <property name="postanskiBroj" type="string">
+            <column name="postanskiBroj" length="32" not-null="true" />
+        </property>
+        <property name="drzava" type="string">
+            <column name="drzava" length="32" not-null="true" />
+        </property>
+        <property name="racun" type="string">
+            <column name="racun" length="32" not-null="true" />
+        </property>
+        <property name="valuta" type="string">
+            <column name="valuta" length="32" not-null="true" />
+        </property>
+        <property name="pib" type="string">
+            <column name="pib" length="32" not-null="true" />
+        </property>
+        <property name="kontakt1" type="string">
+            <column name="kontakt1" length="32" not-null="true" />
+        </property>
+        <property name="kontakt2" type="string">
+            <column name="kontakt2" length="32" not-null="true" />
+        </property>
+        <property name="kontakt3" type="string">
+            <column name="kontakt3" length="32" not-null="true" />
+        </property>
+        <property name="kontakt4" type="string">
+            <column name="kontakt4" length="32" not-null="true" />
+        </property>
+        <property name="kontakt5" type="string">
+            <column name="kontakt5" length="32" not-null="true" />
+        </property>
+        <property name="kontOsoba" type="string">
+            <column name="kont_osoba" length="32" not-null="true" />
+        </property>
+        <property name="kontTelef" type="string">
+            <column name="kont_telef" length="32" not-null="true" />
+        </property>
+        <property name="kontEmail" type="string">
+            <column name="kont_email" length="32" not-null="true" />
+        </property>
+        <property name="logoLink" type="string">
+            <column name="logo_link" length="32" not-null="true" />
+        </property>
+        <property name="webLink" type="string">
+            <column name="webLink" length="64" not-null="true" />
+        </property>
+        <property name="opis" type="string">
+            <column name="opis" length="16383" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

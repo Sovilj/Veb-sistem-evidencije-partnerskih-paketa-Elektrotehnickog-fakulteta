@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <h:form>
+
+                <p:panelMenu style="width:200px; align-items: center">
+                    <p:submenu label="Admin Ekskluziv" expanded="true">
+                        <p:menuitem value="Dodaj korisnika" outcome="/admin/adminDodajKor" icon="ui-icon-circle-plus" />
+                        <p:menuitem value="Odobri korisnika" outcome="/admin/adminPrihvatiKor" icon="ui-icon-check" />
+                        <p:menuitem value="Dodaj paket" outcome="/admin/adminDodajPaket" icon="ui-icon-circle-plus" />
+
+                    </p:submenu>
+                    <p:submenu label="Menage" expanded="true">
+                        <p:menuitem value="Dashboard" outcome="/admin/adminPocetna" icon="ui-icon-contact" />
+                        <p:menuitem value="Kontakti kompanija" outcome="/admin/adminKontakti" icon="ui-icon-person" />
+                        <p:menuitem value="Dodaj novcani ugovor" outcome="/admin/adminDodajNUgovor" icon="ui-icon-circle-plus" />
+                        <p:menuitem value="Dodaj donatorski ugovor" outcome="/admin/adminDodajDUgovor" icon="ui-icon-circle-plus" />
+                        <p:menuitem value="Dodaj kompaniju"  outcome="/admin/adminDodajKomp" icon="ui-icon-circle-plus" />
+                        <p:menuitem value="Pretraga"  outcome="/admin/adminPretraga" icon="ui-icon-search" />
+                        <p:menuitem value="Dodaj oglas"  outcome="/admin/adminDodajOglas" icon="ui-icon-circle-plus" />
+                        <p:menuitem value="Dodaj predavanje"  outcome="/admin/adminDodajPred" icon="ui-icon-circle-plus" />
+
+                    </p:submenu>
+                    <p:submenu label="General" expanded="true">
+                        <p:menuitem value="Oglasi" outcome="/admin/adminOglasi" icon="ui-icon-comment" />
+                        <p:menuitem value="Predavanja" outcome="/admin/adminPredavanja" icon="ui-icon-script" />
+                        <p:menuitem value="Paketi" outcome="/admin/adminPaketi" icon="ui-icon-disk" />
+                        <p:menuitem value="Partneri" outcome="/admin/adminPartneri" icon="ui-icon-link" />
+
+                    </p:submenu>
+                    <p:submenu label="Log" expanded="true">
+                        <p:menuitem value="Logout" action="#{loginController.logOut()}"  icon="ui-icon-circle-close" />
+
+                    </p:submenu>
+
+
+                </p:panelMenu>
+            </h:form>
+        </ui:composition>
+    </h:body>
+</html>
+

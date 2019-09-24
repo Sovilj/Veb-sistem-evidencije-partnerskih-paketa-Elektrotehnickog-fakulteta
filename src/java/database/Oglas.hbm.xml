@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 28, 2018 1:27:32 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="database.Oglas" table="oglas" catalog="projekat" optimistic-lock="version">
+        <id name="idOglas" type="java.lang.Integer">
+            <column name="id_oglas" />
+            <generator class="identity" />
+        </id>
+        <property name="naslov" type="string">
+            <column name="naslov" length="32" not-null="true" />
+        </property>
+        <property name="opis" type="string">
+            <column name="opis" length="16383" not-null="true" />
+        </property>
+        <property name="strucnaPraksa" type="int">
+            <column name="strucna_praksa" not-null="true" />
+        </property>
+        <property name="zaposlenje" type="int">
+            <column name="zaposlenje" not-null="true" />
+        </property>
+        <property name="datum" type="date">
+            <column name="datum" length="10" not-null="true" />
+        </property>
+        <property name="vreme" type="time">
+            <column name="vreme" length="8" not-null="true" />
+        </property>
+        <property name="idKomp" type="int">
+            <column name="id_komp" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

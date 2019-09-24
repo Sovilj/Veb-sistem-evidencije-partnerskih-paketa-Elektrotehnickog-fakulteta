@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <ui:composition>
+            <h:form>
+
+                <p:panelMenu style="width:200px; align-items: center">
+                    <p:submenu label="Korisnik" expanded="true">
+                        <p:menuitem value="Prijava" outcome="index" icon="ui-icon-person" />
+                        <p:menuitem value="Promena lozinke"  outcome="promenaLozinke" icon="ui-icon-locked" />
+                        <p:menuitem value="Registracija"  outcome="registracija" icon="ui-icon-clipboard" />
+                    </p:submenu>
+                    
+                    <p:submenu label="Gost" expanded="true">
+                        <p:menuitem value="Prijava" outcome="gost" icon="ui-icon-power" />
+                    </p:submenu>
+                </p:panelMenu>
+            </h:form>
+        </ui:composition>
+    </h:body>
+</html>
+

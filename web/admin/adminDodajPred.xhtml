@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <f:metadata>
+            <f:viewAction action="#{predControl.inicClan()}"/>
+        </f:metadata>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/glavniTemplate.xhtml">
+            <ui:define name="title">
+                Dodavanje predavanja
+            </ui:define>
+            <ui:define name="left">
+                <ui:include src="adminLeft.xhtml"/>
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form >
+
+                    <p:dataTable var="komp" value="#{predControl.kompanije}" id="radioDT" selection="#{predControl.odabrana}" rowKey="#{komp.idKomp}" style="width: 400px">
+                        <f:facet name="header" >
+                            Odaberite kompaniju:
+                        </f:facet>
+                        <p:column headerText="Kompanije" style="width:100px;text-align:center">
+                            <h:outputText value="#{komp.naziv}" />
+                        </p:column>
+                        <p:column headerText="IdKompanije" style="width:50px;text-align:center">
+                            <h:outputText value="#{komp.idKomp}" />
+                        </p:column>
+                        <p:column selectionMode="single" style="width:16px;text-align:center"/>
+
+                    </p:dataTable>
+                    <p:message for="radioDT"/>
+                    <br/>
+
+                    <h:panelGrid columns="3">
+                        Naslov predavanja:
+                        <p:inputText id="naziv" value="#{predControl.naziv}"/>
+                        <p:message for="naziv"/>
+
+                        Opis:
+                        <p:inputTextarea rows="6" cols="33" value="#{predControl.opis}" id="opis"/>
+                        <p:message for="opis" />
+
+                        Datum odrzavanja:
+                        <p:calendar id="button" value="#{predControl.datum}" pattern="yyyy-MM-dd" showOn="button" />
+                        <p:message for="button" />
+
+                        Vreme odrzavanja:
+                        <p:calendar id="time" value="#{predControl.vreme}" pattern="HH:mm" timeOnly="true"  />
+                        <p:message for="time" />
+                        
+                        Sala:
+                        <p:inputText value="#{predControl.sala}" id="sala"/>
+                        <p:message for="sala"/>
+                        
+                        Ime i prezime predavaca:
+                        <p:inputText value="#{predControl.predavac}" id="predavac"/>
+                        <p:message for="predavac"/>
+                        
+                        Biografija:
+                        <p:inputTextarea rows="6" cols="33" value="#{predControl.biografija}" id="bio"/>
+                        <p:message for="bio" />
+                        
+                        <p:commandButton action="#{predControl.dodaj()}" ajax="false" icon="ui-icon-check" validateClient="true" value="Potvrdi"/>
+                        <h:outputText value="" id="messageId" binding="#{predControl.component}"></h:outputText>
+                        <p:message for="messageId" />
+
+                    </h:panelGrid>                                      
+                </h:form>                              
+            </ui:define>           
+        </ui:composition>
+    </h:body>
+</html>
+

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 28, 2018 1:27:32 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="database.Ima" table="ima" catalog="projekat" optimistic-lock="version">
+        <id name="idIma" type="java.lang.Integer">
+            <column name="id_ima" />
+            <generator class="identity" />
+        </id>
+        <property name="idStavka" type="int">
+            <column name="id_stavka" not-null="true" />
+        </property>
+        <property name="idPaket" type="int">
+            <column name="id_paket" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

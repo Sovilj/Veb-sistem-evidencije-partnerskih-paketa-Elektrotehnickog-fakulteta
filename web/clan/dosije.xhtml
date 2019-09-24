@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/glavniTemplate.xhtml">
+            <ui:define name="left">
+                <ui:include src="clanLeft.xhtml"/>
+            </ui:define>
+            <ui:define name="title">
+                Dosije
+            </ui:define>
+            <ui:define name="content">
+                <h:form>
+                    <div style="padding-left: 40px"> 
+                        <h:graphicImage url="#{pretragaControl.odabrana.logoLink}" width="150px" height="50px" />
+
+                        <p:outputLabel value="#{pretragaControl.odabrana.naziv}" style="font-size: 20px; padding-left: 40px; "/>
+
+                        <br/><br/><br/>
+                    </div>
+                    <h:panelGrid columns="2" id="panel" cellspacing="#{pretragaControl.izmena ? '12px' : '1px'}" style="column-width: 300px" > 
+                        Naziv kompanije
+                        <p:outputLabel value="#{pretragaControl.odabrana.naziv}" rendered="true" />
+                        <p:inputText value="#{pretragaControl.odabrana.naziv}" rendered="false"/>
+
+                        Adresa
+                        <p:outputLabel value="#{pretragaControl.odabrana.adresa}" rendered="#{pretragaControl.izmena}"/>
+                        <p:inputText value="#{pretragaControl.odabrana.adresa}" rendered="#{not pretragaControl.izmena}"/>
+
+                        Grad
+                        <p:outputLabel value="#{pretragaControl.odabrana.grad}" rendered="#{pretragaControl.izmena}"/>
+                        <p:inputText value="#{pretragaControl.odabrana.grad}" rendered="#{not pretragaControl.izmena}"/>
+
+                        Postanski Broj
+                        <p:outputLabel value="#{pretragaControl.odabrana.postanskiBroj}" rendered="#{pretragaControl.izmena}"/>
+                        <p:inputText value="#{pretragaControl.odabrana.postanskiBroj}" rendered="#{not pretragaControl.izmena}"/>
+
+                        Drzava
+                        <p:outputLabel value="#{pretragaControl.odabrana.drzava}" rendered="#{pretragaControl.izmena}"/>
+                        <p:inputText value="#{pretragaControl.odabrana.drzava}" rendered="#{not pretragaControl.izmena}"/>
+
+                        Racun
+                        <p:outputLabel value="#{pretragaControl.odabrana.racun}" rendered="#{pretragaControl.izmena}"/>
+                        <p:inputText value="#{pretragaControl.odabrana.racun}" rendered="#{not pretragaControl.izmena}"/>
+
+                        Valuta
+                        <p:outputLabel value="#{pretragaControl.odabrana.valuta}" rendered="#{pretragaControl.izmena}"/>
+                        <p:inputText value="#{pretragaControl.odabrana.valuta}" rendered="#{not pretragaControl.izmena}"/>
+
+                        PIB
+                        <p:outputLabel value="#{pretragaControl.odabrana.pib}" rendered="#{pretragaControl.izmena}"/>
+                        <p:inputText value="#{pretragaControl.odabrana.pib}" rendered="#{not pretragaControl.izmena}"/>
+
+                        Kontakt1
+                        <p:outputLabel value="#{pretragaControl.odabrana.kontakt1}" rendered="#{pretragaControl.izmena}"/>
+                        <p:inputText value="#{pretragaControl.odabrana.kontakt1}" rendered="#{not pretragaControl.izmena}"/>
+
+                        Kontakt2
+                        <p:outputLabel value="#{pretragaControl.odabrana.kontakt2}" rendered="#{pretragaControl.izmena}"/>
+                        <p:inputText value="#{pretragaControl.odabrana.kontakt2}" rendered="#{not pretragaControl.izmena}"/>
+
+                        Kontakt3
+                        <p:outputLabel value="#{pretragaControl.odabrana.kontakt3}" rendered="#{pretragaControl.izmena}"/>
+                        <p:inputText value="#{pretragaControl.odabrana.kontakt3}" rendered="#{not pretragaControl.izmena}"/>
+
+                        Kontakt4
+                        <p:outputLabel value="#{pretragaControl.odabrana.kontakt4}" rendered="#{pretragaControl.izmena}"/>
+                        <p:inputText value="#{pretragaControl.odabrana.kontakt4}" rendered="#{not pretragaControl.izmena}"/>
+
+                        Kontakt5
+                        <p:outputLabel value="#{pretragaControl.odabrana.kontakt5}" rendered="#{pretragaControl.izmena}"/>
+                        <p:inputText value="#{pretragaControl.odabrana.kontakt5}" rendered="#{not pretragaControl.izmena}"/>
+
+                        Kontakt Osoba
+                        <p:outputLabel value="#{pretragaControl.odabrana.kontOsoba}" rendered="#{pretragaControl.izmena}"/>
+                        <p:inputText value="#{pretragaControl.odabrana.kontOsoba}" rendered="#{not pretragaControl.izmena}"/>
+
+                        Kontakt Telefon
+                        <p:outputLabel value="#{pretragaControl.odabrana.kontTelef}" rendered="#{pretragaControl.izmena}"/>
+                        <p:inputText value="#{pretragaControl.odabrana.kontTelef}" rendered="#{not pretragaControl.izmena}"/>
+
+                        Kontakt Email
+                        <p:outputLabel value="#{pretragaControl.odabrana.kontEmail}" rendered="#{pretragaControl.izmena}"/>
+                        <p:inputText value="#{pretragaControl.odabrana.kontEmail}" rendered="#{not pretragaControl.izmena}"/>
+
+                        LogoLink
+                        <p:outputLabel value="#{pretragaControl.odabrana.logoLink}" rendered="#{pretragaControl.izmena}"/>
+                        <p:inputText value="#{pretragaControl.odabrana.logoLink}" rendered="#{not pretragaControl.izmena}"/>
+
+                        Link web sajta
+                        <!-- <p:outputLabel value="#{dijagramControl.odabrana.webLink}" rendered="#{dijagramControl.izmena}"/>-->
+                        <h:outputLink  value="#{dijagramControl.odabrana.webLink}"  rendered="#{dijagramControl.izmena}" target="_blank">#{dijagramControl.odabrana.webLink}</h:outputLink>
+                        <p:inputText value="#{pretragaControl.odabrana.webLink}" rendered="#{not pretragaControl.izmena}"/>
+
+                        Opis
+                        <p:outputLabel  value="#{pretragaControl.odabrana.opis}" rendered="#{pretragaControl.izmena}"/>
+                        <p:inputTextarea value="#{pretragaControl.odabrana.opis}" rendered="#{not pretragaControl.izmena}"/>
+
+
+
+                        <p:commandButton value="Izmeni" update="panel" action="#{pretragaControl.izmeniBool()}"/>
+                        <p:commandButton value="Snimi" update="panel" action="#{pretragaControl.snimi()}"/>
+                        <h:outputLabel value="  "/>
+
+
+                        <h:outputText value="  " binding="#{pretragaControl.component}" id="messagesId"/>
+                        <h:outputLabel value="  "/>
+                        <p:message for="messagesId"/>
+
+                    </h:panelGrid>
+
+                    <p:dataTable var="item" value="#{pretragaControl.listKompUgovor}" >
+                        <p:column headerText="Tip ugovora">
+                            <h:outputLabel value="#{item.tipUgovora}" style="#{item.istekao ? 'color: red;' : 'color: blue;'}"/>
+                        </p:column>
+                        <p:column headerText="Tip Paketa">
+                            <h:outputLabel value="#{item.tipPaketa}" style="#{item.istekao ? 'color: red;' : 'color: blue;'}"/>
+                        </p:column>
+                        <p:column headerText="Datum potpisivanja ugovora">
+                            <h:outputLabel value="#{item.datumSklapanja}" style="#{item.istekao ? 'color: red;' : 'color: blue;'}"/>
+                        </p:column>
+                        <p:column headerText="Datum isticanja ugovora">
+                            <h:outputLabel value="#{item.datumIsticanja}" style="#{item.istekao ? 'color: red;' : 'color: blue;'}"/>
+                        </p:column>
+
+                    </p:dataTable>
+
+
+                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+
+
+                </h:form>
+
+
+            </ui:define>
+
+        </ui:composition>
+    </h:body>
+</html>
+

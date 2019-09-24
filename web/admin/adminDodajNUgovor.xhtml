@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <f:metadata>
+            <f:viewAction action="#{ugovorControl.inic()}"/>
+        </f:metadata>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/glavniTemplate.xhtml">
+            <ui:define name="title">
+                Dodavanje novcanog ugovora
+            </ui:define>
+            <ui:define name="left">
+                <ui:include src="adminLeft.xhtml"/>
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form >
+
+                    <p:dataTable var="komp" value="#{ugovorControl.kompanije}" id="table1" selection="#{ugovorControl.odabranaKomp}" rowKey="#{komp.idKomp}" style="width: 400px">
+                        <f:facet name="header" >
+                            Odaberite kompaniju:
+                        </f:facet>
+                        <p:column headerText="Kompanije" style="width:100px;text-align:center">
+                            <h:outputText value="#{komp.naziv}" />
+                        </p:column>
+                        <p:column headerText="IdKompanije" style="width:50px;text-align:center">
+                            <h:outputText value="#{komp.idKomp}" />
+                        </p:column>
+                        <p:column selectionMode="single" style="width:16px;text-align:center"/>
+
+                    </p:dataTable>
+                   
+                    <br/>
+                   
+
+                    <h:panelGrid columns="3">
+
+                        Unesite vrednost ugovora:
+                        <p:inputText id="v" value="#{ugovorControl.vrednost}"  />
+                        <p:message for="v"/>
+                        
+                        Unesite datum ugovora:
+                        <p:calendar id="button" value="#{ugovorControl.datumUgovora}" showOn="button" />
+                        <p:message for="button"/>
+
+                        Status ugovora:
+                        <p:selectOneMenu id="status" value="#{ugovorControl.status}">
+                            <f:selectItem itemLabel="Odaberite jedan" itemValue="" />
+                            <f:selectItems value="#{ugovorControl.statusi}" />
+                        </p:selectOneMenu>
+                        <p:message for="status"/>
+
+                        Poslata faktura:
+                        <p:selectBooleanCheckbox id="fakt" value="#{ugovorControl.faktura}" />
+                        <p:message for="fakt"/>
+
+                        Izvrsena uplata:
+                        <p:selectBooleanCheckbox id="upl" value="#{ugovorControl.uplata}" />
+                        <p:message for="upl"/>
+
+                        Unesite datum uplate:
+                        <p:calendar id="datumUpla" value="#{ugovorControl.datumUplate}" showOn="button" />
+                        <p:message for="datumUpla"/>
+
+                        <p:commandButton action="#{ugovorControl.dodajNovcani()}" icon="ui-icon-check" update="table1"  ajax="false" validateClient="true" value="Potvrdi"/>
+
+                        <h:outputText value="" id="messageId" binding="#{ugovorControl.component}"></h:outputText>
+                        <p:message for="messageId" />
+
+                    </h:panelGrid>
+
+                    
+
+
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

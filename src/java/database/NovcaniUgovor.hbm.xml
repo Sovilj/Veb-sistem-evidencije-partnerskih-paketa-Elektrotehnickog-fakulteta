@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 28, 2018 1:27:32 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="database.NovcaniUgovor" table="novcani_ugovor" catalog="projekat" optimistic-lock="version">
+        <id name="idNUgov" type="java.lang.Integer">
+            <column name="id_n_ugov" />
+            <generator class="identity" />
+        </id>
+        <property name="idKomp" type="int">
+            <column name="id_komp" not-null="true" />
+        </property>
+        <property name="idPaket" type="int">
+            <column name="id_paket" not-null="true" />
+        </property>
+        <property name="vrednost" type="int">
+            <column name="vrednost" not-null="true" />
+        </property>
+        <property name="datumUgovora" type="date">
+            <column name="datumUgovora" length="10" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="32" not-null="true" />
+        </property>
+        <property name="poslataFaktura" type="int">
+            <column name="poslataFaktura" not-null="true" />
+        </property>
+        <property name="izvrsenaUplata" type="int">
+            <column name="izvrsenaUplata" not-null="true" />
+        </property>
+        <property name="datumUplate" type="date">
+            <column name="datumUplate" length="10" not-null="true" />
+        </property>
+        <property name="datumIsticanja" type="date">
+            <column name="datumIsticanja" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

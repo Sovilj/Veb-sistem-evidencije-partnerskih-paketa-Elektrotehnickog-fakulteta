@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/glavniTemplate.xhtml">
+            <ui:define name="title">
+                Dodavanje korisnika
+            </ui:define>
+            
+            <ui:define name="left">
+                <ui:include src="adminLeft.xhtml"/>
+            </ui:define>
+            <ui:define name="content">
+                <h:form>
+                    <h:panelGrid columns="3" id="grid" >
+                        Ime:
+                        <p:inputText id="ime" value="#{regController.ime}" />
+                        <p:message for="ime" />
+
+                        Prezime:
+                        <p:inputText id="prezime" value="#{regController.prezime}" />
+                        <p:message for="prezime"/>
+
+                        Email:
+                        <p:inputText id="email" value="#{regController.email}"/>
+                        <p:message for="email"/>
+
+                        Institucija:
+                        <p:inputText id="komp" value="#{regController.institucija}" />
+                        <p:message for="komp"/>
+
+                        Korisnicko ime:
+                        <p:inputText id="kime" value="#{regController.username}" />
+                        <p:message for="kime"/>
+
+                        Lozinka:
+                        <p:password id="loz" value="#{regController.password1}" />
+                        <p:message for="loz"/>
+
+                        Potvrda Lozinke:
+                        <p:password id="ploz" value="#{regController.password2}" />
+                        <p:message for="ploz"/>
+
+                        Pol:
+                        <p:selectOneRadio id="pol" value="#{regController.pol}">
+                            <f:selectItem itemLabel="Muski" itemValue="muski" />
+                            <f:selectItem itemLabel="Zenksi" itemValue="zenski" />
+                        </p:selectOneRadio>
+                        <p:message for="pol"/>
+
+                        Datum rodjenja:
+                        <p:calendar id="effect" value="#{regController.rodjendan}" effect="fold"  />
+                        <p:message for="effect"/>
+
+                        <p:commandButton value="Registruj se" ajax="false" validateClient="true" icon="ui-icon-check" action="#{regController.registracija()}"/>
+                        <h:outputText value="" id="messageId" binding="#{regController.component}"></h:outputText>
+                        <p:message for="messageId" />
+
+
+                    </h:panelGrid>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>  
+    </h:body>
+</html>
+

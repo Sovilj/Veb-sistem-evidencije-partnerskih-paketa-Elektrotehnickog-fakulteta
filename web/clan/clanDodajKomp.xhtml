@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet name="/resources/css/styles.css"/>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/glavniTemplate.xhtml">
+            <ui:define name="title">
+                Dodaj Kompaniju
+            </ui:define>
+            <ui:define name="left">
+                <ui:include src="clanLeft.xhtml"/>
+            </ui:define>
+
+            <ui:define name="content">
+                <h2>Dodajte kompaniju:</h2>
+                <h:form>
+                    <h:panelGrid id="grid" columns="3">
+                        Naziv kompanije:
+                        <p:inputText id="ime" value="#{kompControl.naziv}" />
+                        <p:message for="ime" />
+
+                        Adresa:
+                        <p:inputText id="adresa" value="#{kompControl.adresa}" />
+                        <p:message for="adresa" />
+
+                        Grad:
+                        <p:inputText id="grad" value="#{kompControl.grad}" />
+                        <p:message for="grad" />
+
+                        Postanski broj:
+                        <p:inputText id="br" value="#{kompControl.posta}" />
+                        <p:message for="br" />
+
+                        Drzava:
+                        <p:inputText id="drzava" value="#{kompControl.drzava}" />
+                        <p:message for="drzava" />
+
+                        Ziro-racun:
+                        <p:inputText id="racun" value="#{kompControl.racun}" />
+                        <p:message for="racun" />
+
+                        Valuta:
+                        <p:selectOneButton id="valuta" value="#{kompControl.valuta}">
+                            <f:selectItem itemLabel="RSD" itemValue="RSD" />
+                            <f:selectItem itemLabel="EUR" itemValue="EUR" />
+                            <f:selectItem itemLabel="USD" itemValue="USD" />
+                        </p:selectOneButton>
+                        <p:message for="valuta" />
+                        PIB:
+                        <p:inputText id="pib" value="#{kompControl.PIB}" />
+                        <p:message for="pib" />
+                        
+                        Kontakt#1:
+                        <p:inputText id="k1" value="#{kompControl.kontakt1}" />
+                        <p:message for="k1" />
+                        
+                        Kontakt#2*:
+                        <p:inputText id="k2" value="#{kompControl.kontakt2}" />
+                        <p:message for="k2" />
+                        
+                        Kontakt#3*:
+                        <p:inputText id="k3" value="#{kompControl.kontakt3}" />
+                        <p:message for="k3" />
+                        
+                        Kontakt#4*:
+                        <p:inputText id="k4" value="#{kompControl.kontakt4}" />
+                        <p:message for="k4" />
+                        
+                        Kontakt#5*:
+                        <p:inputText id="k5" value="#{kompControl.kontakt5}" />
+                        <p:message for="k5" />
+
+                        Ime i prezime kontakt osobe:
+                        <p:inputText id="k_osoba" value="#{kompControl.kontOsoba}" />
+                        <p:message for="k_osoba" />
+                        
+                        Telefon kontakt osobe:
+                        <p:inputText id="osobaTel" value="#{kompControl.kontOsobaTel}" />
+                        <p:message for="osobaTel" />
+                        
+                        Email kontakt osobe::
+                        <p:inputText id="osobaEmail" value="#{kompControl.kontOsobaEmail}" />
+                        <p:message for="osobaEmail" />
+                        
+                        Link slike(/resources/slike/...):
+                        <p:inputText id="slika" value="#{kompControl.slikaLink}" />
+                        <p:message for="slika" />
+                        
+                        Kratak opis kompanije:
+                        <p:inputTextarea id="opis" value="#{kompControl.opis}" />
+                        <p:message for="opis" />
+                         
+                        Link internet stranice:
+                        <p:inputText id="web" value="#{kompControl.webLink}" />
+                        <p:message for="web" />
+                        
+                        <p:commandButton action="#{kompControl.dodaj()}" icon="ui-icon-check" ajax="false" validateClient="true" value="Potvrdi"/>
+                        <h:outputText value="" id="messageId" binding="#{kompControl.component}"></h:outputText>
+                        <p:message for="messageId" />
+                    </h:panelGrid>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+    </h:body>
+</html>
+

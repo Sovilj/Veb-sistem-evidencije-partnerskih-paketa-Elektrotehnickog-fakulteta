@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 28, 2018 1:27:32 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="database.Predavanje" table="predavanje" catalog="projekat" optimistic-lock="version">
+        <id name="idPred" type="java.lang.Integer">
+            <column name="id_pred" />
+            <generator class="identity" />
+        </id>
+        <property name="naslovRs" type="string">
+            <column name="naslov_rs" length="32" not-null="true" />
+        </property>
+        <property name="naslovEn" type="string">
+            <column name="naslov_en" length="32" not-null="true" />
+        </property>
+        <property name="opisRs" type="string">
+            <column name="opis_rs" length="16383" not-null="true" />
+        </property>
+        <property name="opisEn" type="string">
+            <column name="opis_en" length="16383" not-null="true" />
+        </property>
+        <property name="datum" type="date">
+            <column name="datum" length="10" not-null="true" />
+        </property>
+        <property name="vreme" type="time">
+            <column name="vreme" length="8" not-null="true" />
+        </property>
+        <property name="sala" type="string">
+            <column name="sala" length="32" not-null="true" />
+        </property>
+        <property name="predavac" type="string">
+            <column name="predavac" length="32" not-null="true" />
+        </property>
+        <property name="biografija" type="string">
+            <column name="biografija" length="16383" not-null="true" />
+        </property>
+        <property name="idKomp" type="int">
+            <column name="id_komp" not-null="true" />
+        </property>
+        <property name="proslo" type="int">
+            <column name="proslo" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

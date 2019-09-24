@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/glavniTemplate.xhtml">
+            <ui:define name="title">
+                Paketi
+            </ui:define>
+            <ui:define name="left">
+                <ui:include src="clanLeft.xhtml"/>
+            </ui:define>
+
+            <ui:define name="content">
+               
+                <h:form>
+                    
+                    <h:panelGrid columns="2">
+                        <p:selectOneRadio id="sort" value="#{paketControl.sort}">
+                        <f:selectItem itemLabel="Azbucno(rastuce)" itemValue="ar"/>
+                        <f:selectItem itemLabel="Azbucno(opadajuce)" itemValue="ao"/>
+                        <f:selectItem itemLabel="Vrednost(rastuce)" itemValue="vr"/>
+                        <f:selectItem itemLabel="Vrednost(opadajuce)" itemValue="vo"/>
+                    </p:selectOneRadio>
+                    
+                    <p:commandButton value="Sortiraj" update="table" action="#{paketControl.sortiraj()}"/>
+                    </h:panelGrid>
+                    
+                    <p:dataTable var="list" id="table" value="#{paketControl.paketStavka}" style="width: 800px;">
+                        <f:facet name="header">
+                            Lista svih paketa
+                        </f:facet>
+                        <p:column headerText="ID paketa" style="width : 30px;">
+                            <h:outputText value="#{list.paket.idPaket}" />
+                        </p:column>
+                        <p:column headerText="Naziv paketa" style="width : 100px;">
+                            <h:outputText value="#{list.paket.naziv}" />
+                        </p:column>
+                        <p:column headerText="Vrednost" style="width : 70px;">
+                            <h:outputText value="#{list.paket.vrednost}" />
+                        </p:column>
+                        <p:column headerText="Trajanje ugovora(god)" style="width : 30px;">
+                            <h:outputText value="#{list.paket.trajanjeUgovora}" />
+                        </p:column>
+                        <p:column headerText="Maksimalan broj" style="width : 30px;">
+                            <h:outputText value="#{list.paket.maxBroj}" />
+                        </p:column>
+                        <p:column headerText="Sadrzaj" style="width : 30px;">
+                            
+                            <ui:repeat value="#{list.stavke}" var="st">
+                                -#{st.naziv}<br/>
+                            </ui:repeat>
+                            
+                            
+                        </p:column>
+
+
+                    </p:dataTable>
+                       
+                </h:form>
+                
+            </ui:define>
+        </ui:composition>
+        
+    </h:body>
+</html>
+

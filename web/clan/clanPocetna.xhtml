@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/glavniTemplate.xhtml">
+            <ui:define name="title">
+                Pocetna
+            </ui:define>
+            <ui:define name="left">
+                <ui:include src="clanLeft.xhtml"/>
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form>
+                    <p:dataTable var="list" value="#{prikazControl.kompanije1}" style="width: 400px;">
+                        <f:facet name="header">
+                            Pet kompanija sa najskorije potpisanim ugovorima
+                        </f:facet>
+                        <p:column headerText="Naziv" style="width : 200px;">
+                            <h:outputText value="#{list.kompanija.naziv}" 
+                                         style="color: #{list.bool ? 'red' : 'black'};}" />
+                        </p:column>
+
+                        <p:column headerText="ID" style="width : 50px;">
+                            <h:outputText value="#{list.kompanija.idKomp}" 
+                                        style="color: #{list.bool ? 'red' : 'black'};}"  />
+                        </p:column>
+
+
+                    </p:dataTable>
+                    <br/><br/>
+                    <p:dataTable var="list" value="#{prikazControl.kompanije2}" style="width: 400px;">
+                        <f:facet name="header">
+                            Pet kompanija kojima isticu ugovori
+                        </f:facet>
+                        <p:column headerText="Naziv" style="width : 200px;">
+                            <h:outputText value="#{list.kompanija.naziv}" 
+                                         style="color: #{list.bool ? 'red' : 'black'};}" />
+                        </p:column>
+
+                        <p:column headerText="ID" style="width : 50px;">
+                            <h:outputText value="#{list.kompanija.idKomp}" 
+                                        style="color: #{list.bool ? 'red' : 'black'};}"  />
+                        </p:column>
+
+
+                    </p:dataTable>
+
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+    </h:body>
+</html>
+
